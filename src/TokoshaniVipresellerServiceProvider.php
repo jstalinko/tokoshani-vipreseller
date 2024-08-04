@@ -23,6 +23,11 @@ class TokoshaniVipresellerServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('tokoshani-vipreseller.php'),
             ], 'config');
+            $this->publishes([
+                __DIR__.'/../config/tokoshani.php' => config_path('tokoshani.php'),
+            ], 'config');
+
+
 
             // Publishing the views.
             /*$this->publishes([
@@ -51,6 +56,8 @@ class TokoshaniVipresellerServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'tokoshani-vipreseller');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'tokoshani');
+
 
         // Register the main class to use with the facade
         $this->app->singleton('tokoshani-vipreseller', function () {
