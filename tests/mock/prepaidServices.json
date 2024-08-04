@@ -1,0 +1,40 @@
+{
+  "result": true,
+  "data": [
+    {
+      "brand": "",
+      "code": "",
+      "name": "",
+      "note": "",
+      "price": {
+        "basic": 200,
+        "premium": 175,
+        "special": 150
+      },
+      "status": "empty",
+      "multi_trx": false,
+      "maintenace": "00:00 - 00:00",
+      "category": "Pascabayar",
+      "prepost": "prepaid",
+      "type": "not-filtered"
+    },
+    {
+      "brand": "XL",
+      "code": "XLDHR3",
+      "name": "XL HOTROD 3 GB / 30 Hari",
+      "note": "-",
+      "price": {
+        "basic": 48225,
+        "premium": 48200,
+        "special": 48175
+      },
+      "status": "available",
+      "multi_trx": true,
+      "maintenace": "23:44 - 00:16",
+      "category": "Hotrod",
+      "prepost": "prepaid",
+      "type": "paket-internet"
+    }
+  ],
+  "message": "Daftar layanan berhasil didapatkan."
+}

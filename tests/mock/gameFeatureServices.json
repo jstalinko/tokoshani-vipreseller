@@ -1,0 +1,30 @@
+{
+    "result": true,
+    "data": [
+        {
+            "code": "ML14-S14",
+            "game": "Mobile Legends A",
+            "name": "14 Diamonds ( 13 + 1 Bonus )",
+            "price": {
+                "basic": 3310,
+                "premium": 3260,
+                "special": 3235
+            },
+            "server": "1",
+            "status": "empty"
+        },
+        {
+            "code": "IQIYISHARED-S1",
+            "game": "iQIYI Premium",
+            "name": "IQIYI Premium [ 1 Bulan ] [ Shared ]",
+            "price": {
+                "basic": 11000,
+                "premium": 10000,
+                "special": 9700
+            },
+            "server": "1",
+            "status": "available"
+        }
+    ],
+    "message": "Daftar layanan berhasil didapatkan."
+}
