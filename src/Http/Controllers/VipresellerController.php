@@ -31,7 +31,7 @@ class VipresellerController extends Controller
     {
         try {
             $profile = $this->vipreseller->getProfile();
-            return $this->buildResponse(true, 200, json_decode($profile));
+            return $this->buildResponse(true, 200, json_decode($profile,true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }
@@ -45,7 +45,7 @@ class VipresellerController extends Controller
             $filterStatus = $request->filter_status ?? null;
 
             $games = $this->vipreseller->getGameFeatureServices($filterType, $filterValue, $filterStatus);
-            return $this->buildResponse(true, 200, json_decode($games));
+            return $this->buildResponse(true, 200, json_decode($games,true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }
@@ -57,7 +57,7 @@ class VipresellerController extends Controller
             $filterType = $request->filter_type ?? null;
             $filterValue = $request->filter_value ?? null;
             $prepaid = $this->vipreseller->getPrepaidServices($filterType, $filterValue);
-            return $this->buildResponse(true, 200, json_decode($prepaid));
+            return $this->buildResponse(true, 200, json_decode($prepaid,true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }
