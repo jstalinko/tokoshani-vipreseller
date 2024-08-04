@@ -2,6 +2,7 @@
 
 namespace Jstalinko\TokoshaniVipreseller\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -16,21 +17,49 @@ class VipresellerController extends Controller
         $this->vipreseller = $vipreseller;
     }
 
+    public function buildResponse(bool $success, int $code, array $data): JsonResponse
+    {
+        $response['success'] = $success;
+        $response['code'] = $code;
+        $response['shnData'] = $data;
+        $response['x-api'] = "jstalinko/tokoshani-vipreseller";
+
+        return response()->json($response, $code, [], JSON_PRETTY_PRINT);
+    }
+
     public function getProfile()
     {
-        $profile = $this->vipreseller->getProfile();
-        return response()->json(json_decode($profile, true));
+        try {
+            $profile = $this->vipreseller->getProfile();
+            return $this->buildResponse(true, 200, json_decode($profile));
+        } catch (Exception $e) {
+            return $this->buildResponse(false, 500, ['errors' => $e]);
+        }
     }
 
-    public function getGameFeatureServices(): JsonResponse
+    public function getGameFeatureServices(Request $request): JsonResponse
     {
-        $profile = $this->vipreseller->getGameFeatureServices();
-        return response()->json(json_decode($profile, true));
+        try {
+            $filterType = $request->filter_type ?? null;
+            $filterValue = $request->filter_value ?? null;
+            $filterStatus = $request->filter_status ?? null;
+
+            $games = $this->vipreseller->getGameFeatureServices($filterType, $filterValue, $filterStatus);
+            return $this->buildResponse(true, 200, json_decode($games));
+        } catch (Exception $e) {
+            return $this->buildResponse(false, 500, ['errors' => $e]);
+        }
     }
-    public function getPrepaidServices(): JsonResponse
+    public function getPrepaidServices(Request $request): JsonResponse
     {
 
-        $profile = $this->vipreseller->getPrepaidServices();
-        return response()->json(json_decode($profile, true));
+        try {
+            $filterType = $request->filter_type ?? null;
+            $filterValue = $request->filter_value ?? null;
+            $prepaid = $this->vipreseller->getPrepaidServices($filterType, $filterValue);
+            return $this->buildResponse(true, 200, json_decode($prepaid));
+        } catch (Exception $e) {
+            return $this->buildResponse(false, 500, ['errors' => $e]);
+        }
     }
 }
