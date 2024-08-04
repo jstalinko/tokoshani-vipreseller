@@ -7,6 +7,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Jstalinko\TokoshaniVipreseller\TokoshaniVipreseller;
+use PhpParser\Node\Expr\Cast\Object_;
+use stdClass;
 
 class VipresellerController extends Controller
 {
@@ -17,7 +19,7 @@ class VipresellerController extends Controller
         $this->vipreseller = $vipreseller;
     }
 
-    public function buildResponse(bool $success, int $code, array $data): JsonResponse
+    public function buildResponse(bool $success, int $code, array|stdClass $data): JsonResponse
     {
         $response['success'] = $success;
         $response['code'] = $code;
