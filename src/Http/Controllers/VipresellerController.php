@@ -33,7 +33,7 @@ class VipresellerController extends Controller
     {
         try {
             $profile = $this->vipreseller->getProfile();
-            return $this->buildResponse(true, 200, json_decode($profile,true));
+            return $this->buildResponse(true, 200, json_decode($profile, true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }
@@ -47,7 +47,7 @@ class VipresellerController extends Controller
             $filterStatus = $request->filter_status ?? null;
 
             $games = $this->vipreseller->getGameFeatureServices($filterType, $filterValue, $filterStatus);
-            return $this->buildResponse(true, 200, json_decode($games,true));
+            return $this->buildResponse(true, 200, json_decode($games, true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }
@@ -59,7 +59,21 @@ class VipresellerController extends Controller
             $filterType = $request->filter_type ?? null;
             $filterValue = $request->filter_value ?? null;
             $prepaid = $this->vipreseller->getPrepaidServices($filterType, $filterValue);
-            return $this->buildResponse(true, 200, json_decode($prepaid,true));
+            return $this->buildResponse(true, 200, json_decode($prepaid, true));
+        } catch (Exception $e) {
+            return $this->buildResponse(false, 500, ['errors' => $e]);
+        }
+    }
+
+    public function getCheckNickname(Request $request): JsonResponse
+    {
+
+        try {
+            $target = $request->target;
+            $additional_target = $request->additional_target ?? null;
+            $type = $request->type;
+            $getNickname = $this->vipreseller->getNickname($type, $target, $additional_target);
+            return $this->buildResponse(true, 200, json_decode($getNickname, true));
         } catch (Exception $e) {
             return $this->buildResponse(false, 500, ['errors' => $e]);
         }

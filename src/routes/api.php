@@ -9,4 +9,6 @@ Route::group(['prefix' => 'shn-api'], function () {
         Route::get('/games', [VipresellerController::class, 'getGameFeatureServices'])->name('tokoshani.vipreseller.gamefeatureservices');
         Route::get('/prepaid', [VipresellerController::class, 'getPrepaidServices'])->name('tokoshani.vipreseller.prepaidservices');
     });
+    
+    Route::get('/get-nickname' , [VipresellerController::class , 'getCheckNickname'])->name('tokoshani.vipreseller.getnickname');
 });
