@@ -1,0 +1,12 @@
+{
+    "result": true,
+    "data": {
+        "full_name": "Alin Koko Mansuby",
+        "username": "Alinko",
+        "balance": 522,
+        "point": 0,
+        "level": "Special",
+        "registered": "2023-01-23 17:56:45"
+    },
+    "message": "Successfully got your account details."
+}
