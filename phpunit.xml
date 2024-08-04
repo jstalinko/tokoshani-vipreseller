@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <server name="AP" value="false"/>
+        <server name="TOKOSHANI_VIPRESELLER_API_ID" value="qz4YkyXK"/>
+        <server name="TOKOSHANI_VIPRESELLER_API_KEY" value="CM1TQLRimWXBnaKdLbgnCO6OiEpdMpwHnuIuYgTjkYS8CQZlQKv8bXevqPLhJ5DU"/>
+        <server name="TOKOSHANI_VIPRESELLER_SIGN" value="33f204b1f4a20d56ab67368cd9b7bcb9"/>
+    </php>
+</phpunit>
