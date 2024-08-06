@@ -23,6 +23,7 @@ class TokoshaniVipresellerServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/config.php' => config_path('tokoshani-vipreseller.php'),
             ], 'config');
+            
             $this->publishes([
                 __DIR__.'/../config/tokoshani.php' => config_path('tokoshani.php'),
             ], 'config');
